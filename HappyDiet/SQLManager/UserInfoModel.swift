@@ -19,6 +19,7 @@ fileprivate let user_sex = Expression<Int?>("sex")
 fileprivate let user_headImg = Expression<String?>("headImg")
 fileprivate let user_email = Expression<String?>("email")
 fileprivate let user_status = Expression<Int?>("status")
+fileprivate let user_identity = Expression<Int?>("identity")
 
 struct UserInfo {
     
@@ -31,6 +32,7 @@ struct UserInfo {
     var userHeadImg: String?
     var userEmail: String?
     var userStatus: Int?
+    var userIdentity: Int?
     
     init(name: String? = nil,
          userMobile: String? = nil,
@@ -39,7 +41,8 @@ struct UserInfo {
          userSex: Int? = nil,
          userHeadImg: String? = nil,
          userEmail: String? = nil,
-         userStatus: Int? = nil
+         userStatus: Int? = nil,
+         userIdentity: Int? = nil
     ) {
         self.userName = name
         self.userMobile = userMobile
@@ -49,6 +52,7 @@ struct UserInfo {
         self.userHeadImg = userHeadImg
         self.userEmail = userEmail
         self.userStatus = userStatus
+        self.userIdentity = userIdentity
         createTable()
     }
 }
@@ -91,6 +95,7 @@ extension UserInfo: TableProtocol {
             build.column(user_headImg)
             build.column(user_email)
             build.column(user_status)
+            build.column(user_identity)
         }
         _ = try? SQLManager.shared.db?.run(create)
     }
@@ -107,6 +112,7 @@ extension UserInfo: TableProtocol {
         userInfo.userHeadImg = sqlInfo[user_headImg]
         userInfo.userEmail = sqlInfo[user_email]
         userInfo.userStatus = sqlInfo[user_status]
+        userInfo.userIdentity = sqlInfo[user_identity]
         
         return userInfo
     }
@@ -119,7 +125,8 @@ extension UserInfo: TableProtocol {
                                            user_sex <- info.userSex,
                                            user_headImg <- info.userHeadImg,
                                            user_email <- info.userEmail,
-                                           user_status <- info.userStatus)
+                                           user_status <- info.userStatus,
+                                           user_identity <- info.userIdentity)
         
         
         guard let rowId = try? SQLManager.shared.db?.run(insert) else {
@@ -138,7 +145,8 @@ extension UserInfo: TableProtocol {
                                                                    user_sex <- info.userSex,
                                                                    user_headImg <- info.userHeadImg,
                                                                    user_email <- info.userEmail,
-                                                                   user_status <- info.userStatus))
+                                                                   user_status <- info.userStatus,
+                                                                   user_identity <- info.userIdentity))
         console(args: result != nil ? "更新成功" : "更新失败")
     }
     

@@ -9,23 +9,45 @@ import SwiftUI
 
 struct Welcome: View {
     
-    @EnvironmentObject var shareInfo: SharedInfo
+    @Binding var rootType: RootType
+    
+//    @State private var status: Bool = false
+    @State private var paddingTop = -125.0
+    @State private var paddingBottom = -23.0
+    
+    private var driveAnimation: Animation {.easeInOut(duration: 3).speed(3.5)}
     
     var body: some View {
-        Text("欢迎👏🏻来到我的世界")
-        
-        Button("创建账号并登录") {
-            UserInfo.insetData(info: UserInfo(name: "Mr.Qi",userMobile: "15201566683",userStatus: 1))
-            shareInfo.type = 1
-//            Scene().environmentObject(SharedInfo.shared)
+        VStack {
+            Image("appIcon")
+                .frame(width: 125,height: 125)
+                .padding(EdgeInsets(top: paddingTop, leading: 0, bottom: 0, trailing: 0))
+            Spacer()
+            withAnimation {
+                Image("nameIcon")
+                    .frame(height: 23)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: paddingBottom, trailing: 0))
+            }
+        }.onAppear {
+            Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { (timer) in
+                if (paddingTop < 200) {
+                    paddingTop += 1
+                } else {
+                    checkIsLogin()
+                    timer.invalidate()
+                }
+                
+                if (paddingBottom < 108)  {
+                    paddingBottom += 1
+                }
+            }
         }
-        
-        Button("创建账号，但是不登录") {
-            UserInfo.insetData(info: UserInfo(name: "MrQi",userMobile: "15201566684",userStatus: 0))
-            shareInfo.type = 2
-//            Scene().environmentObject(SharedInfo.shared)
+    }
+    
+    func checkIsLogin() {
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
+            timer.invalidate()
+            rootType = SharedInfo.shared.userInfo == nil ? .unLogic : .login
         }
-        
-        Text("\(shareInfo.type)")
     }
 }

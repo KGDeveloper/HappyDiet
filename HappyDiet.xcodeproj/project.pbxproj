@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A0E82062C44BF2300DAA61D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0E82052C44BF2300DAA61D /* Extension.swift */; };
 		6A404B3D2C40C2F400295BBA /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A404B3C2C40C2F400295BBA /* Welcome.swift */; };
 		6A404B3F2C40C5B000295BBA /* SharedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A404B3E2C40C5B000295BBA /* SharedInfo.swift */; };
 		6A404B422C40DDF100295BBA /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A404B412C40DDF100295BBA /* TabController.swift */; };
@@ -18,11 +19,15 @@
 		6A954B522C3FECF3003D1209 /* HappyDietApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A954B512C3FECF3003D1209 /* HappyDietApp.swift */; };
 		6A954B562C3FECF4003D1209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A954B552C3FECF4003D1209 /* Assets.xcassets */; };
 		6A954B592C3FECF4003D1209 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A954B582C3FECF4003D1209 /* Preview Assets.xcassets */; };
+		6AEDCA002C4511AB00D10CBE /* InfoProrocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDC9FF2C4511AB00D10CBE /* InfoProrocol.swift */; };
+		6AEDCA022C45122300D10CBE /* InfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDCA012C45122300D10CBE /* InfoEnum.swift */; };
+		6AEDCA042C45124600D10CBE /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDCA032C45124600D10CBE /* AppInfo.swift */; };
 		C4B9661DF9E4394BBD5BE554 /* Pods_HappyDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2E7A1EDE0FE399E2C94701 /* Pods_HappyDiet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D2E7A1EDE0FE399E2C94701 /* Pods_HappyDiet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyDiet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0E82052C44BF2300DAA61D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		6A404B3C2C40C2F400295BBA /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		6A404B3E2C40C5B000295BBA /* SharedInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedInfo.swift; sourceTree = "<group>"; };
 		6A404B412C40DDF100295BBA /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -35,6 +40,9 @@
 		6A954B512C3FECF3003D1209 /* HappyDietApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyDietApp.swift; sourceTree = "<group>"; };
 		6A954B552C3FECF4003D1209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A954B582C3FECF4003D1209 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6AEDC9FF2C4511AB00D10CBE /* InfoProrocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoProrocol.swift; sourceTree = "<group>"; };
+		6AEDCA012C45122300D10CBE /* InfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEnum.swift; sourceTree = "<group>"; };
+		6AEDCA032C45124600D10CBE /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		9E1D053A6E716E04185DD0BD /* Pods-HappyDiet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyDiet.debug.xcconfig"; path = "Target Support Files/Pods-HappyDiet/Pods-HappyDiet.debug.xcconfig"; sourceTree = "<group>"; };
 		ED00160C175894A1946E163D /* Pods-HappyDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyDiet.release.xcconfig"; path = "Target Support Files/Pods-HappyDiet/Pods-HappyDiet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,10 +76,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6A0E82042C44BF1500DAA61D /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				6A0E82052C44BF2300DAA61D /* Extension.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		6A404B3A2C40C29200295BBA /* SharedInfo */ = {
 			isa = PBXGroup;
 			children = (
 				6A404B3E2C40C5B000295BBA /* SharedInfo.swift */,
+				6AEDCA032C45124600D10CBE /* AppInfo.swift */,
+				6AEDCA012C45122300D10CBE /* InfoEnum.swift */,
+				6AEDC9FF2C4511AB00D10CBE /* InfoProrocol.swift */,
 				6A404B4B2C41046400295BBA /* PublicFunc.swift */,
 			);
 			path = SharedInfo;
@@ -133,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				6A954B512C3FECF3003D1209 /* HappyDietApp.swift */,
+				6A0E82042C44BF1500DAA61D /* Tools */,
 				6A404B462C40F7EB00295BBA /* SQLManager */,
 				6A404B432C40DE8500295BBA /* Login */,
 				6A404B402C40DDDE00295BBA /* TabController */,
@@ -191,11 +211,11 @@
 			};
 			buildConfigurationList = 6A954B492C3FECF3003D1209 /* Build configuration list for PBXProject "HappyDiet" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 6A954B452C3FECF3003D1209;
 			productRefGroup = 6A954B4F2C3FECF3003D1209 /* Products */;
@@ -267,13 +287,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A404B3D2C40C2F400295BBA /* Welcome.swift in Sources */,
+				6AEDCA002C4511AB00D10CBE /* InfoProrocol.swift in Sources */,
+				6AEDCA022C45122300D10CBE /* InfoEnum.swift in Sources */,
 				6A404B4E2C4131C000295BBA /* Windows.swift in Sources */,
 				6A404B452C40DE9400295BBA /* Login.swift in Sources */,
 				6A404B482C40F7FC00295BBA /* SQLManager.swift in Sources */,
 				6A404B422C40DDF100295BBA /* TabController.swift in Sources */,
+				6A0E82062C44BF2300DAA61D /* Extension.swift in Sources */,
 				6A404B4A2C40F83500295BBA /* UserInfoModel.swift in Sources */,
 				6A404B3F2C40C5B000295BBA /* SharedInfo.swift in Sources */,
 				6A404B4C2C41046400295BBA /* PublicFunc.swift in Sources */,
+				6AEDCA042C45124600D10CBE /* AppInfo.swift in Sources */,
 				6A954B522C3FECF3003D1209 /* HappyDietApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +437,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "快乐美食";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -423,7 +448,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.trade.client.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -445,6 +470,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "快乐美食";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -455,7 +481,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.trade.client.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

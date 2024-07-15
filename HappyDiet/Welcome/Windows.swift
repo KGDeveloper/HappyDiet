@@ -9,34 +9,17 @@ import SwiftUI
 
 struct Windows: View {
     
-    @EnvironmentObject var shareInfo: SharedInfo
+    @StateObject var shareInfo: SharedInfo = SharedInfo.shared
     
     var body: some View {
-        NavigationLink {
-            switch shareInfo.type {
-            case 0:
-                Welcome()
-                    .frame(minWidth: 0,maxWidth: .infinity,minHeight: 0,maxHeight: .infinity)
-                    .background(LinearGradient(colors: [.red,.blue], startPoint: .top, endPoint: .bottom))
-            case 1:
-                TabController()
-                    .frame(minWidth: 0,maxWidth: .infinity,minHeight: 0,maxHeight: .infinity)
-                    .background(LinearGradient(colors: [.red,.blue], startPoint: .top, endPoint: .bottom))
-            case 2:
-                Login()
-                    .frame(minWidth: 0,maxWidth: .infinity,minHeight: 0,maxHeight: .infinity)
-                    .background(LinearGradient(colors: [.red,.blue], startPoint: .top, endPoint: .bottom))
-            default:
-                Welcome()
-                    .frame(minWidth: 0,maxWidth: .infinity,minHeight: 0,maxHeight: .infinity)
-                    .background(LinearGradient(colors: [.red,.blue], startPoint: .top, endPoint: .bottom))
-            }
-        } label: {
-            Welcome()
+        if (shareInfo.rootType == .unLogic) {
+            Login().frame(minWidth: 0,maxWidth: .infinity,minHeight: 0,maxHeight: .infinity)
+        } else if (shareInfo.rootType == .login) {
+            TabController().frame(minWidth: 0,maxWidth: .infinity,minHeight: 0,maxHeight: .infinity)
+        } else {
+            Welcome(rootType: $shareInfo.rootType)
                 .frame(minWidth: 0,maxWidth: .infinity,minHeight: 0,maxHeight: .infinity)
-                .background(LinearGradient(colors: [.red,.blue], startPoint: .top, endPoint: .bottom))
+                .background(LinearGradient(colors: [.white, .init(hex: 0xEEE6D9),.init(hex: 0xEEC8A4)], startPoint: .top, endPoint: .bottom))
         }
-        
-        Text("\(shareInfo.type)")
     }
 }
