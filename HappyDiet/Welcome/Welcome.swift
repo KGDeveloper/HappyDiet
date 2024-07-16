@@ -11,7 +11,6 @@ struct Welcome: View {
     
     @Binding var rootType: RootType
     
-//    @State private var status: Bool = false
     @State private var paddingTop = -125.0
     @State private var paddingBottom = -23.0
     
@@ -45,7 +44,7 @@ struct Welcome: View {
     }
     
     func checkIsLogin() {
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
             timer.invalidate()
             rootType = SharedInfo.shared.userInfo == nil ? .unLogic : .login
         }
