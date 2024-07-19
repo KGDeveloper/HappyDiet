@@ -10,9 +10,9 @@ import WebKit
 
 struct AgreementPage: View {
     
-    @Binding var agreementType: AgreementType
+    var isUserAgreement: Bool
     
     var body: some View {
-        WebView(url: URL(string: "https://www.baidu.com"))
+        WebView(url: URL(string: isUserAgreement ? "https://www.baidu.com" : "https://www.kaifa.baidu.com"))
     }
 }

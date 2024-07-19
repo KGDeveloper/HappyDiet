@@ -11,9 +11,10 @@ struct Login: View {
     
     @Binding var rootType: RootType
     @StateObject private var viewModel: LoginViewModel = LoginViewModel()
+    @EnvironmentObject var shareInfo: SharedInfo
     
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             VStack(alignment: .leading) {
                 /// 固定App名称
                 Text(SharedInfo.shared.appInfo.appName)
@@ -37,7 +38,7 @@ struct Login: View {
                     .clipShape(.rect(cornerRadius: 8),style: .init())
                     .padding(EdgeInsets(top: 15, leading: 30, bottom: 0, trailing: 30))
 
-                Button(action: viewModel.loginAction, label: {
+                Button(action: loginAction, label: {
                     Spacer()
                     Text("登 录")
                         .font(.system(size: 18))
@@ -60,21 +61,29 @@ struct Login: View {
                     }
 
                     Text("请仔细阅读").font(.system(size: 14)).fontWeight(.medium).foregroundStyle(Color.init(hex: 0x989FA8))
-                    NavigationLink(value: viewModel.agreementType == .user) {
-                        Button(action: viewModel.gotoUserPage) {
-                            Text("《用户协议》").font(.system(size: 14)).fontWeight(.medium).foregroundStyle(.accent)
-                        }
+                    Button(action: viewModel.gotoUserPage) {
+                        Text("《用户协议》").font(.system(size: 14)).fontWeight(.medium).foregroundStyle(.accent)
                     }
+
 
                     Text("与").font(.system(size: 14)).fontWeight(.medium).foregroundStyle(Color.init(hex: 0x989FA8))
                     Button(action: viewModel.gotoPrivacyPage) {
                         Text("《隐私协议》").font(.system(size: 14)).fontWeight(.medium).foregroundStyle(.accent)
                     }
                 }.padding(EdgeInsets(top: 0, leading: 30, bottom: 30, trailing: 30))
-            }
-        } detail: {
-            
+            }.navigationDestination(isPresented: $viewModel.isUserAgreement) {
+                AgreementPage(isUserAgreement: viewModel.isUserAgreement)
+            }.navigationDestination(isPresented: $viewModel.isPrivateAgreement) {
+                AgreementPage(isUserAgreement: viewModel.isUserAgreement)
+            }.navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.automatic)
         }
+    }
+}
 
+extension Login {
+    func loginAction() {
+        if !viewModel.mobile.isValidChinesePhoneNumber {
+            shareInfo.showToast("手机号不合法，请检查手机号", type: .warn)
+        }
     }
 }

@@ -14,6 +14,8 @@ class SharedInfo: ObservableObject {
     
     static var shared = SharedInfo()
     
+    var _msgList: [ToastMessage] = []
+    
     private init() {
         userInfo = UserInfo.prepareLoginUser().first
         appInfo = AppInfo(map: Bundle.main.infoDictionary ?? [:])
@@ -22,6 +24,6 @@ class SharedInfo: ObservableObject {
     @Published var userInfo: UserInfo?
     @Published var rootType: RootType = .welcome
     @Published var appInfo: AppInfo
+    @Published var noticeInfo: ToastMessage?
 }
-
 

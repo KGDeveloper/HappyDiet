@@ -17,3 +17,12 @@ extension Color {
         self.init(red: intr, green: intg, blue: intb, opacity: opacity)
     }
 }
+
+extension String {
+    
+    var isValidChinesePhoneNumber: Bool {
+        let pattern = "^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\\d{8}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", pattern)
+        return predicate.evaluate(with: self)
+    }
+}
